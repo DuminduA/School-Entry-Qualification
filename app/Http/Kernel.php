@@ -46,6 +46,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'committeemember' => \App\Http\Middleware\RedirectIfNotCommitteemember::class,
+        'committeemember.guest' => \App\Http\Middleware\RedirectIfCommitteemember::class,
+        'moestaff' => \App\Http\Middleware\RedirectIfNotMoestaff::class,
+        'moestaff.guest' => \App\Http\Middleware\RedirectIfMoestaff::class,
+        'applicant' => \App\Http\Middleware\RedirectIfNotApplicant::class,
+        'applicant.guest' => \App\Http\Middleware\RedirectIfApplicant::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

@@ -36,6 +36,21 @@ return [
     */
 
     'guards' => [
+        'committeemember' => [
+            'driver' => 'session',
+            'provider' => 'committeemembers',
+        ],
+
+        'moestaff' => [
+            'driver' => 'session',
+            'provider' => 'moestaffs',
+        ],
+
+        'applicant' => [
+            'driver' => 'session',
+            'provider' => 'applicants',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +80,21 @@ return [
     */
 
     'providers' => [
+        'committeemembers' => [
+            'driver' => 'eloquent',
+            'model' => App\Committeemember::class,
+        ],
+
+        'moestaffs' => [
+            'driver' => 'eloquent',
+            'model' => App\Moestaff::class,
+        ],
+
+        'applicants' => [
+            'driver' => 'eloquent',
+            'model' => App\Applicant::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +122,24 @@ return [
     */
 
     'passwords' => [
+        'committeemembers' => [
+            'provider' => 'committeemembers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'moestaffs' => [
+            'provider' => 'moestaffs',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'applicants' => [
+            'provider' => 'applicants',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

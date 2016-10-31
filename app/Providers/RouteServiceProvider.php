@@ -39,7 +39,70 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapCommitteememberRoutes();
+
+        $this->mapMoestaffRoutes();
+
+        $this->mapApplicantRoutes();
+
         //
+    }
+
+    /**
+     * Define the "applicant" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapApplicantRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'applicant', 'auth:applicant'],
+            'prefix' => 'applicant',
+            'as' => 'applicant.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/applicant.php');
+        });
+    }
+
+    /**
+     * Define the "moestaff" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapMoestaffRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'moestaff', 'auth:moestaff'],
+            'prefix' => 'moestaff',
+            'as' => 'moestaff.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/moestaff.php');
+        });
+    }
+
+    /**
+     * Define the "committeemember" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapCommitteememberRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'committeemember', 'auth:committeemember'],
+            'prefix' => 'committeemember',
+            'as' => 'committeemember.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/committeemember.php');
+        });
     }
 
     /**
