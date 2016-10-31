@@ -2,10 +2,11 @@
 
 namespace App;
 
+use App\Notifications\MoestaffResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Moestaff extends Authenticatable
 {
     use Notifiable;
 
@@ -26,4 +27,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MoestaffResetPassword($token));
+    }
+    public function phone()
+    {
+        return $this->hasMany('App\Phone','moestaff_id','id');
+    }
 }
