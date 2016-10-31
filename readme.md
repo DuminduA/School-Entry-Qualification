@@ -1,4 +1,5 @@
-This Is a Project based on Creating an [![Online System]] for [![Grade 1 Entry Qualification Monitering]] for [![Ministry Of Education]] Sri Lanka
+This Is a Project based on Creating an Online System for Grade 1 Entry Qualification Monitering for Ministry Of Education Sri Lanka
+We Used Laravel Framework to build this Web Application
 
 # Laravel PHP Framework
 
