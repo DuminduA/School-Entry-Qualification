@@ -10,4 +10,7 @@ class School extends Model
         
         return $this->hasMany('App\Phone','school_id','id');
     }
+    public function Application(){
+        return $this->hasMany("App\Application",'school_id','id');
+    }
 }

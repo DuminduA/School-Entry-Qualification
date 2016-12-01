@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:committeemembers',
             'password' => 'required|min:6|confirmed',
             'NIC'   => 'required|min:9|unique:committeemembers',
+
            // 'school' => 'required',
         ]);
     }
@@ -72,7 +73,7 @@ class RegisterController extends Controller
 //            'email' => $data['email'],
 //            'password' => bcrypt($data['password']),
 //            'NIC'=> $data['NIC'],
-//            'type'=>1,
+//            'type' =>$data['NIC'],
 //
 //           // 'type'=>$data['type'],
 //           // 'school' => $data['school'],
@@ -109,7 +110,7 @@ class RegisterController extends Controller
         $commitmem->email=$request['email'];
         $commitmem->password=$request['password'];
         $commitmem->NIC=$request['NIC'];
-        $commitmem->type=1;
+        $commitmem->type=1;                     //TODO must implement Type to be choosed in the view
         $commitmem->save();
         event(new Registered($commitmem));
          $this->guard()->login($commitmem);
