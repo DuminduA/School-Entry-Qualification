@@ -1,4 +1,4 @@
-@extends('applicant.layout.auth')
+@extends('layouts.applicantMaster')
 
 @section('content')
 <div class="container">
