@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('applicantDashbord');
-});
 
 //Applicant Login
 Route::get('applicant/login', 'ApplicantAuth\LoginController@showLoginForm');
@@ -62,3 +59,10 @@ Route::post('committeemember/password/reset', 'CommitteememberAuth\ResetPassword
 Route::get('committeemember/password/reset', 'CommitteememberAuth\ForgotPasswordController@showLinkRequestForm');
 Route::get('committeemember/password/reset/{token}', 'CommitteememberAuth\ResetPasswordController@showResetForm');
 
+Route::get('dashboard', function(){
+    return view ('applicantDashboard');
+});
+
+Route::get('application/', function(){
+    return view ('application\application1');
+})->name('application');
