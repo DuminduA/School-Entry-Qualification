@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
     <title>@yield('title')</title>
     <!-- Compiled and minified CSS -->
@@ -26,6 +28,13 @@
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>--}}
 <script type="text/javascript" src="{{ URL::asset('/materialize/js/materialize.min.js') }}"></script>
 @include('includes.applicantSideBar')
+
+        <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
 
 <div class="container">
     @yield('contain')
